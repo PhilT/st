@@ -3,6 +3,14 @@ st - simple terminal
 st is a simple terminal emulator for X which sucks less.
 
 
+Patches
+-------
+* Scrollback with Shift+PgUp/PgDn or mouse wheel
+* Del key patch did not work. Instead `cat` followed by pressing delete,
+  then entered the result into `/etc/inputrc` (substituting `^[` for `\e`)
+  e.g. `sudo sed -i 's/.*: delete-char/"\\e[P": delete-char/' /etc/inputrc`
+
+
 Requirements
 ------------
 In order to build st you need the Xlib header files.
@@ -31,4 +39,3 @@ See the man page for additional details.
 Credits
 -------
 Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
-
